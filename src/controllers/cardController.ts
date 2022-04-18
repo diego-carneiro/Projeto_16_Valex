@@ -37,7 +37,7 @@ export async function activateCard(
 
     await cardService.activateCard(idNumber, securityCode, password);
     
-    res.sendStatus(201);
+    res.sendStatus(200);
 }
 
 export async function getCardBalance(
@@ -60,5 +60,5 @@ export async function rechargeCard(
     
     await cardService.recharge(idNumber, amount);
     
-    res.sendStatus(201);
+    res.sendStatus(200);
 }

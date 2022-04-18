@@ -32,14 +32,14 @@ export async function getBalance(
     id: number
 ) {
     await getCard(id)
-    const payments = await getPayments(id)
+    const transactions = await getPayments(id)
     const recharges = await getRecharges(id)
     const totalRecharges = getAmountRecharges(recharges)
-    const totalPayments = getAmountPayments(payments)
+    const totalPayments = getAmountPayments(transactions)
     const balance = totalRecharges - totalPayments
     return {
         balance,
-        payments,
+        transactions,
         recharges,
     }
 }
@@ -68,7 +68,9 @@ async function getRecharges(
     return formattedTimestamp;
 }
 
-function getAmountPayments(arr: any) {
+function getAmountPayments(
+    arr: any
+) {
     return arr.reduce((total: number, item: any) => item.amount + total, 0);
 }
 
@@ -206,7 +208,6 @@ function verifySecurityCode(
 
 function validPassword(
     password: string
-
 ) {
     const regex = /[0-9]{4}/;
 
@@ -217,7 +218,9 @@ function validPassword(
     return;
 }
 
-function encryptPassword(password: string) {
+function encryptPassword(
+    password: string
+) {
     return bcrypt.hashSync(password, 10);
 }
 
@@ -273,7 +276,9 @@ function generateCardNumber() {
     return faker.faker.finance.creditCardNumber('mastercard');
 }
 
-function nameFormatter(name: string) {
+function nameFormatter(
+    name: string
+) {
     const newNameArr = name.split(' ');
 
     let newNamehash = {};
