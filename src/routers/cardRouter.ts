@@ -11,7 +11,7 @@ const cardRouter = Router();
 
 cardRouter.post("/card", middlewaresValidation.default(cardSchema), verifyApiKey, cardController.postCard);
 cardRouter.post("/card/:id/activate", middlewaresValidation.default(activateSchema), verifyApiKey, cardController.activateCard);
-cardRouter.get("/card/:id", verifyApiKey, cardController.getCardBalanece);
+cardRouter.get("/card/:id", verifyApiKey, cardController.getCardBalance);
 cardRouter.post("/card/:id/recharge", middlewaresValidation.default(amountSchema), verifyApiKey, cardController.rechargeCard);
 cardRouter.post("/card/:id/payment/:idBusiness", middlewaresValidation.default(paymentSchema), cardController.postPayment);
 

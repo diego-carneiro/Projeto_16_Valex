@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { valid } from "joi";
 
-export default function schemaChecker(schema) {
+export default function schemaChecker(schema: any) {
     return (
         req: Request,
         res: Response,

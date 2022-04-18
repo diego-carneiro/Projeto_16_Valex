@@ -6,9 +6,9 @@ export async function validateCompany(apiKey: string) {
     if (!validatedCompany) {
         throw {
             error_type: "auth_error",
-            message: "invalid company API key"
+            message: "invalid API key"
         };
     };
 
-    return validateCompany;
+    return validatedCompany;
 };
